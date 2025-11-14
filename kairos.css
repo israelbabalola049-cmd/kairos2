@@ -1,0 +1,178 @@
+:root {
+  --black: #0D0D0D;
+  --orange: #FF6F3C;
+  --orange-hover: #FF7A50;
+  --white: #FFFFFF;
+  --gray: #B3B3B3;
+  --panel-bg: rgba(13,13,13,0.5);
+  --shadow-color: rgba(255,111,60,0.3);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Inter', sans-serif; background-color: var(--black); color: var(--white); scroll-behavior: smooth; }
+a { text-decoration:none; color: inherit; }
+
+/* Glass Panels */
+.glass {
+  backdrop-filter: blur(12px);
+  background-color: var(--panel-bg);
+  border-radius: 14px;
+  padding: 25px;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.glass.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glass:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px var(--shadow-color);
+}
+
+/* Header */
+header {
+  position: sticky;
+  top:0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(13,13,13,0.35);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+
+.logo {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--orange);
+  letter-spacing: 1.8px;
+}
+
+header nav a { margin-left: 20px;font-weight: 500; transition: color 0.3s; }
+header nav a:hover { color: var(--orange); }
+
+header .cta-btn {
+  padding: 10px 25px;
+  border: 2px solid var(--orange);
+  border-radius: 8px;
+  color: var(--orange);
+  margin-left: 20px;
+}
+header .cta-btn:hover {
+  background-color: var(--orange);
+  color: var(--black);
+  box-shadow: 0 5px 20px rgba(255,111,60,0.5);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background: url('Backdrops\ Studio🔹.jpeg') center/cover no-repeat;
+  position: relative;
+}
+
+.hero::before {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5); /* overlay for readability */
+}
+
+.hero-content {
+  position: relative;
+  z-index:1;
+  max-width: 800px;
+}
+
+.hero h1 { font-family:'Montserrat', sans-serif; font-size:4rem; margin-bottom:20px; color: var(--orange);}
+.hero p { font-size:1.2rem; color: var(--gray); margin-bottom:30px; }
+
+.hero .btn-group a {
+  display:inline-block;
+  margin:0 10px;
+  padding: 12px 30px;
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.hero .btn-group a:hover {
+  background-color: var(--orange);
+  color: var(--black);
+  box-shadow: 0 10px 25px rgba(255,111,60,0.3);
+}
+
+/* Sections */
+section { padding: 100px 50px; }
+
+h2 { font-family:'Montserrat', sans-serif; font-size:2.5rem; margin-bottom:40px; color: var(--orange); text-align:center; }
+
+.features, .projects { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+
+.about { display:flex; flex-wrap:wrap; align-items:center; gap:40px; }
+.about-text { flex:1 1 400px; }
+.about-text p { color: var(--gray); line-height:1.6; font-size:1.1rem; }
+.about-image {
+  flex:1 1 400px;
+  min-height:300px;
+  background: url('Green\ Leaves\ Wallpaper\,\ Nature\ Scenery\,\ Desktop\ Background\,\ 4K.jpeg') center/cover no-repeat;
+  border-radius: 15px;
+}
+
+/* Contact */
+.contact form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:20px; }
+
+.contact input, .contact textarea {
+  padding:15px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  background: rgba(255,255,255,0.1);
+  color:#FFFFFF;
+  font-size:1rem;
+}
+
+.contact button {
+  padding:15px;
+  border:none;
+  border-radius:8px;
+  background-color:var(--orange);
+  color:var(--black);
+  font-weight:600;
+  cursor:pointer;
+  transition: all 0.3s;
+}
+
+.contact button:hover { box-shadow: 0 10px 25px rgba(255,111,60,0.4); }
+
+/* Footer */
+footer {
+  text-align:center;
+  padding:40px 20px;
+  background: rgba(13,13,13,0.7);
+  backdrop-filter: blur(12px);
+  color: var(--gray);
+  font-size:0.9rem;
+}
+
+/* Responsive */
+@media (max-width:768px){
+  .hero h1 { font-size:3rem; }
+  section { padding:70px 20px; }
+  .about { flex-direction:column; }
+  .about-image { min-height:200px; }
+}
